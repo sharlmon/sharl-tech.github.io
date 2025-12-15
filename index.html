@@ -266,19 +266,29 @@
                         <h4>Transmission</h4>
                         <div class="form-id">ID: #REQ-001</div>
                     </div>
-                    <form class="transmission-form">
+                    <form class="transmission-form" action="https://formsubmit.co/sharlmon19@gmail.com" method="POST">
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_next" value="https://sharlmon.github.io/sharl-tech.github.io/">
+                        <input type="hidden" name="_subject" value="New Client Inquiry - Sharl Tech">
+                        <input type="hidden" name="_captcha" value="false">
+
                         <div class="input-group">
-                            <input type="text" required>
+                            <input type="text" name="name" required>
                             <label>Identity (Name)</label>
                             <span class="focus-border"></span>
                         </div>
                         <div class="input-group">
-                            <input type="email" required>
+                            <input type="email" name="email" required>
                             <label>Signal Frequency (Email)</label>
                             <span class="focus-border"></span>
                         </div>
                         <div class="input-group">
-                            <textarea rows="4" required></textarea>
+                            <input type="tel" name="phone">
+                            <label>Comms Link (Phone - Optional)</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="input-group">
+                            <textarea name="message" rows="4" required></textarea>
                             <label>Mission Brief (Message)</label>
                             <span class="focus-border"></span>
                         </div>
