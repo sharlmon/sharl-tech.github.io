@@ -143,3 +143,93 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Service Modal Data
+const servicesData = {
+    'web': {
+        title: 'Web Design',
+        icon: 'fas fa-globe',
+        desc: 'Custom, responsive, and aesthetic websites tailored to your brand. We build everything from landing pages to complex portals.',
+        features: ['Responsive UI', 'Custom Branding', 'SEO Ready', 'Fast Loading']
+    },
+    'hosting': {
+        title: 'Web Hosting',
+        icon: 'fas fa-server',
+        desc: 'Reliable, high-speed hosting solutions ensuring your site is always online and performing at its peak.',
+        features: ['99.9% Uptime', 'SSD Storage', 'Daily Backups', '24/7 Support']
+    },
+    'seo': {
+        title: 'SEO & Marketing',
+        icon: 'fas fa-chart-line',
+        desc: 'Boost your visibility and drive traffic with our data-driven SEO and digital marketing strategies.',
+        features: ['Keyword Analysis', 'On-Page Optimization', 'Content Strategy', 'Traffic Analytics']
+    },
+    'app': {
+        title: 'App Development',
+        icon: 'fas fa-mobile-alt',
+        desc: 'Native and cross-platform mobile applications designed for seamless user experiences on iOS and Android.',
+        features: ['iOS & Android', 'Modern UI/UX', 'Cloud Integration', 'Maintenance']
+    },
+    'repair': {
+        title: 'IT Repair',
+        icon: 'fas fa-tools',
+        desc: 'Expert hardware diagnostics and repair for laptops, desktops, and mobile devices.',
+        features: ['Hardware Repair', 'Software Fixes', 'Virus Removal', 'Data Recovery']
+    },
+    'domain': {
+        title: 'Domain Registration',
+        icon: 'fas fa-link',
+        desc: 'Secure your perfect digital identity with our vast selection of TLDs and domain management tools.',
+        features: ['.com / .co.ke', 'DNS Management', 'Privacy Protection', 'Auto-Renewal']
+    }
+};
+
+// Modal Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('service-modal');
+    const closeBtn = document.querySelector('.close-modal');
+    const serviceCards = document.querySelectorAll('.hex-wrapper');
+
+    // Elements to update
+    const mTitle = document.getElementById('modal-title');
+    const mIcon = document.getElementById('modal-icon');
+    const mDesc = document.getElementById('modal-desc');
+    const mFeatures = document.getElementById('modal-features');
+    const mBtn = document.getElementById('modal-btn');
+
+    serviceCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const serviceKey = card.getAttribute('data-service');
+            const data = servicesData[serviceKey];
+
+            if (data) {
+                mTitle.innerText = data.title;
+                mIcon.className = data.icon;
+                mDesc.innerText = data.desc;
+
+                // Features
+                mFeatures.innerHTML = data.features.map(f => `<span class='feature-tag'>${f}</span>`).join('');
+
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            }
+        });
+    });
+
+    // Close Modal
+    const closeModal = () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Purchase Button - Scroll to contact
+    mBtn.addEventListener('click', () => {
+        closeModal();
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    });
+});

@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <meta name="google-site-verification" content="A2vw9rZj9ivLRE4xjZXdYDk5nn5yd2RPUfTbe_gBGno" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sharl Tech | Premium Web Solutions</title>
@@ -53,7 +52,7 @@
             <h3 class="section-title">OUR SERVICES</h3>
             <div class="hex-grid">
                 <!-- Web Dev -->
-                <div class="hex-wrapper">
+                <div class="hex-wrapper" data-service="web">
                     <div class="hex">
                         <div class="hex-content">
                             <i class="fas fa-globe"></i>
@@ -63,7 +62,7 @@
                     </div>
                 </div>
                 <!-- Hosting -->
-                <div class="hex-wrapper">
+                <div class="hex-wrapper" data-service="hosting">
                     <div class="hex">
                         <div class="hex-content">
                             <i class="fas fa-server"></i>
@@ -73,7 +72,7 @@
                     </div>
                 </div>
                 <!-- Marketing -->
-                <div class="hex-wrapper">
+                <div class="hex-wrapper" data-service="seo">
                     <div class="hex">
                         <div class="hex-content">
                             <i class="fas fa-chart-line"></i>
@@ -83,7 +82,7 @@
                     </div>
                 </div>
                 <!-- App Dev -->
-                <div class="hex-wrapper">
+                <div class="hex-wrapper" data-service="app">
                     <div class="hex">
                         <div class="hex-content">
                             <i class="fas fa-mobile-alt"></i>
@@ -93,7 +92,7 @@
                     </div>
                 </div>
                 <!-- Repair -->
-                <div class="hex-wrapper">
+                <div class="hex-wrapper" data-service="repair">
                     <div class="hex">
                         <div class="hex-content">
                             <i class="fas fa-tools"></i>
@@ -103,7 +102,7 @@
                     </div>
                 </div>
                 <!-- Domain -->
-                <div class="hex-wrapper">
+                <div class="hex-wrapper" data-service="domain">
                     <div class="hex">
                         <div class="hex-content">
                             <i class="fas fa-link"></i>
@@ -121,156 +120,202 @@
         <div class="container">
             <h3 class="section-title">PACKAGES</h3>
             <div class="pricing-grid">
-                <!-- Starter -->
+                <!-- Starter Package -->
                 <div class="pricing-card tilt-card" data-tilt>
                     <div class="card-header">
                         <h4>Starter</h4>
-                        <div class="price">KES 35,000</div>
+                        <div class="price">KES 15,000</div>
+                        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">One-off</p>
                     </div>
                     <ul class="features">
-                        <li><i class="fas fa-check"></i> 1-5 Custom Pages</li>
-                        <li><i class="fas fa-check"></i> Mobile Friendly Design</li>
-                        <li><i class="fas fa-check"></i> Google Analytics</li>
-                        <li><i class="fas fa-check"></i> Basic SEO Optimization</li>
-                        <li><i class="fas fa-check"></i> 1 Month Support</li>
-                        <li><i class="fas fa-check"></i> 2 Week Delivery</li>
-                        <li><i class="fas fa-check"></i> Basic Branding Kit</li>
+                        <li><i class="fas fa-check"></i> 1-3 Page Website</li>
+                        <li><i class="fas fa-check"></i> Free .co.ke Domain (1 Year)</li>
+                        <li><i class="fas fa-check"></i> 1-Year Free Basic Hosting</li>
+                        <li><i class="fas fa-check"></i> Up to 3 Corporate Emails</li>
+                        <li><i class="fas fa-check"></i> Basic Responsive Design</li>
+                        <li><i class="fas fa-check"></i> Social Media Links</li>
+                        <li><i class="fas fa-check"></i> 1 Month Free Support</li>
+                        <li><i class="fas fa-check"></i> 5 Working Days Delivery</li>
                     </ul>
                     <a href="#contact" class="btn btn-block">Choose Starter</a>
                 </div>
 
-                <!-- Professional -->
+                <!-- Business Package -->
                 <div class="pricing-card tilt-card featured" data-tilt>
                     <div class="featured-badge">POPULAR</div>
                     <div class="card-header">
-                        <h4>Professional</h4>
-                        <div class="price">KES 45,000</div>
+                        <h4>Business</h4>
+                        <div class="price">KES 25,000</div>
+                        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">One-off</p>
                     </div>
                     <ul class="features">
-                        <li><i class="fas fa-check"></i> 5-10 Custom Pages</li>
-                        <li><i class="fas fa-check"></i> Advanced Mobile UI</li>
-                        <li><i class="fas fa-check"></i> 3rd Party Integrations</li>
-                        <li><i class="fas fa-check"></i> Advanced SEO</li>
-                        <li><i class="fas fa-check"></i> 1 Month Priority Support</li>
-                        <li><i class="fas fa-check"></i> 4 Week Delivery</li>
-                        <li><i class="fas fa-check"></i> Google My Business</li>
+                        <li><i class="fas fa-check"></i> Up to 7 Pages</li>
+                        <li><i class="fas fa-check"></i> Free .com OR .co.ke Domain</li>
+                        <li><i class="fas fa-check"></i> 1-Year Standard Speed Hosting</li>
+                        <li><i class="fas fa-check"></i> Up to 10 Corporate Emails</li>
+                        <li><i class="fas fa-check"></i> Basic SEO Setup</li>
+                        <li><i class="fas fa-check"></i> WhatsApp Chat & Map</li>
+                        <li><i class="fas fa-check"></i> Admin Panel (CMS)</li>
+                        <li><i class="fas fa-check"></i> 3 Months Free Maintenance</li>
+                        <li><i class="fas fa-check"></i> 10 Working Days Delivery</li>
                     </ul>
-                    <a href="#contact" class="btn btn-block btn-primary">Choose Professional</a>
+                    <a href="#contact" class="btn btn-block btn-primary">Choose Business</a>
+                </div>
+
+                <!-- Executive Package -->
+                <div class="pricing-card tilt-card" data-tilt>
+                    <div class="card-header">
+                        <h4>Executive</h4>
+                        <div class="price">KES 35,000</div>
+                        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">One-off</p>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Up to 12 Pages or Online Shop</li>
+                        <li><i class="fas fa-check"></i> Free .com OR .co.ke Domain</li>
+                        <li><i class="fas fa-check"></i> 1-Year High-Speed Hosting</li>
+                        <li><i class="fas fa-check"></i> Free SSL Certificate</li>
+                        <li><i class="fas fa-check"></i> Unlimited Corporate Emails</li>
+                        <li><i class="fas fa-check"></i> Payment Integration / Booking</li>
+                        <li><i class="fas fa-check"></i> Google Analytics</li>
+                        <li><i class="fas fa-check"></i> 6 Months Free Maintenance</li>
+                        <li><i class="fas fa-check"></i> 14-21 Working Days Delivery</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-block">Choose Executive</a>
+                </div>
+            </div>
+
+            <!-- Renewal Rates Section -->
+            <div class="renewal-section">
+                <h4 class="renewal-title">Yearly Renewal Rates</h4>
+                <div class="renewal-grid">
+                    <!-- Starter Renewal -->
+                    <div class="renewal-card">
+                        <div class="renewal-header">
+                            <h5>Starter</h5>
+                            <div class="renewal-price">KES 3,500<span>/yr</span></div>
+                        </div>
+                        <p class="renewal-desc">Domain Renewal + Basic Hosting Space.</p>
+                    </div>
+
+                    <!-- Business Renewal -->
+                    <div class="renewal-card">
+                        <div class="renewal-header">
+                            <h5>Business</h5>
+                            <div class="renewal-price">KES 5,500<span>/yr</span></div>
+                        </div>
+                        <p class="renewal-desc">Domain Renewal + Faster Hosting + Email Support.</p>
+                    </div>
+
+                    <!-- Executive Renewal -->
+                    <div class="renewal-card">
+                        <div class="renewal-header">
+                            <h5>Executive</h5>
+                            <div class="renewal-price">KES 8,500<span>/yr</span></div>
+                        </div>
+                        <p class="renewal-desc">Domain Renewal + High-Speed Hosting + Security SSL + Database Backup.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section: Digital Command Center -->
     <section id="contact" class="section">
-        <div class="container footer-content">
-            <div class="contact-info">
-                <h3>SHARL <span class="thin">TECH</span></h3>
-                <p>The Best Web Hosting Solution for Your Online Success.</p>
-                <div class="contact-item">
-                    <i class="fas fa-phone-alt"></i> 0707 575 397
+        <div class="container">
+            <h3 class="section-title">INITIATE CONTACT</h3>
+            <div class="command-center">
+                <!-- Left Panel: Direct Line -->
+                <div class="panel info-panel">
+                    <div class="panel-header">
+                        <h4>Direct Line</h4>
+                        <div class="status-indicator"><span class="blink"></span> ONLINE</div>
+                    </div>
+                    <div class="panel-body">
+                        <p class="mission-text">Ready to deploy your next digital project? Establish a connection with
+                            our team.</p>
+
+                        <div class="comm-link">
+                            <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+                            <div class="link-details">
+                                <span class="label">Voice</span>
+                                <span class="value">0707 575 397</span>
+                            </div>
+                        </div>
+
+                        <div class="comm-link">
+                            <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                            <div class="link-details">
+                                <span class="label">Data Stream</span>
+                                <span class="value">sharlmon19@gmail.com</span>
+                            </div>
+                        </div>
+
+                        <div class="social-matrix">
+                            <a href="#" class="matrix-node"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="matrix-node"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="matrix-node"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="matrix-node"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i> sharlmon19@gmail.com
+
+                <!-- Right Panel: Transmission Form -->
+                <div class="panel form-panel">
+                    <div class="panel-header">
+                        <h4>Transmission</h4>
+                        <div class="form-id">ID: #REQ-001</div>
+                    </div>
+                    <form class="transmission-form">
+                        <div class="input-group">
+                            <input type="text" required>
+                            <label>Identity (Name)</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" required>
+                            <label>Signal Frequency (Email)</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="input-group">
+                            <textarea rows="4" required></textarea>
+                            <label>Mission Brief (Message)</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            SEND TRANSMISSION <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
-            </div>
-            <div class="contact-form-wrapper">
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Tell us about your project" rows="4"></textarea>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
             </div>
         </div>
         <footer class="footer-bottom">
-            &copy; 2025 Sharl Tech. All Rights Reserved.
+            &copy; 2025 Sharl Tech. All Rights Reserved. SYSTEM ACTIVE.
         </footer>
     </section>
+
+    <!-- Service Detail Modal -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <i id="modal-icon" class="fas fa-globe"></i>
+                <h3 id="modal-title">Web Design</h3>
+            </div>
+            <div class="modal-body">
+                <p id="modal-desc">Description goes here...</p>
+                <div class="modal-features" id="modal-features">
+                    <!-- Features list injected via JS -->
+                </div>
+                <!-- Action Button -->
+                <a href="#contact" class="btn btn-primary btn-block" id="modal-btn">Purchase Service</a>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
     <!-- Tilt.js for 3D Cards -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-    // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyD6Q9w5BQHzwLXT-6xL0lzc1Ks-KOWEhXI",
-  authDomain: "sharl-techdb.firebaseapp.com",
-  projectId: "sharl-techdb",
-  storageBucket: "sharl-techdb.firebasestorage.app",
-  messagingSenderId: "925508789136",
-  appId: "1:925508789136:web:3da30334bdcb81a4a5c915",
-  measurementId: "G-QWS107WYBZ"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-    // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyD6Q9w5BQHzwLXT-6xL0lzc1Ks-KOWEhXI",
-  authDomain: "sharl-techdb.firebaseapp.com",
-  projectId: "sharl-techdb",
-  storageBucket: "sharl-techdb.firebasestorage.app",
-  messagingSenderId: "925508789136",
-  appId: "1:925508789136:web:3da30334bdcb81a4a5c915",
-  measurementId: "G-QWS107WYBZ"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-    <script type="module">
-      // 1. Keep the imports and config you just pasted from Firebase ABOVE this line.
-      // ... (Your firebaseConfig code is here) ...
-
-      // 2. Add this part to make the button work:
-      import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
-      
-      // Initialize the database
-      const db = getFirestore(app); // Ensure 'app' matches the name in your config above
-
-      // Listen for the button click
-      document.getElementById('saveBtn').addEventListener('click', async () => {
-          // Get the text from the input box
-          const clientName = document.getElementById('clientName').value;
-          
-          if (!clientName) {
-              alert("Please enter a name!");
-              return;
-          }
-
-          try {
-              // Save to the "clients" collection
-              await addDoc(collection(db, "clients"), {
-                  name: clientName,
-                  timestamp: new Date()
-              });
-              alert("Success! We received your details.");
-          } catch (error) {
-              console.error("Error adding document: ", error);
-              alert("Something went wrong. Check the console.");
-          }
-      });
-    </script>
-
 </body>
 
-
 </html>
-
-
-
