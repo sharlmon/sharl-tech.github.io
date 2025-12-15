@@ -233,9 +233,44 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+    <script type="module">
+      // 1. Keep the imports and config you just pasted from Firebase ABOVE this line.
+      // ... (Your firebaseConfig code is here) ...
+
+      // 2. Add this part to make the button work:
+      import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+      
+      // Initialize the database
+      const db = getFirestore(app); // Ensure 'app' matches the name in your config above
+
+      // Listen for the button click
+      document.getElementById('saveBtn').addEventListener('click', async () => {
+          // Get the text from the input box
+          const clientName = document.getElementById('clientName').value;
+          
+          if (!clientName) {
+              alert("Please enter a name!");
+              return;
+          }
+
+          try {
+              // Save to the "clients" collection
+              await addDoc(collection(db, "clients"), {
+                  name: clientName,
+                  timestamp: new Date()
+              });
+              alert("Success! We received your details.");
+          } catch (error) {
+              console.error("Error adding document: ", error);
+              alert("Something went wrong. Check the console.");
+          }
+      });
+    </script>
+
 </body>
 
 
 </html>
+
 
 
