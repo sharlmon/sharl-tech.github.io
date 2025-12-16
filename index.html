@@ -427,7 +427,7 @@
                         <div class="form-id">ID: #REQ-001</div>
                     </div>
                     <!-- Action removed, handled by script.js -->
-                    <form class="transmission-form">
+                    <form class="transmission-form" onsubmit="event.preventDefault(); handleForm(this);">
                         <input type="hidden" name="item_name" value="General Inquiry">
 
                         <div class="input-group">

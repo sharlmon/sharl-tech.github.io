@@ -168,11 +168,7 @@
                     <div class="req-id">SESSION ID: <span id="session-id"></span></div>
                 </div>
 
-                <form class="transmission-form" method="POST">
-                    <input type="hidden" name="_next" value="https://sharl-tech.netlify.app/thank-you.html">
-                    <input type="hidden" name="_subject" value="New Service Order - Sharl Tech">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
+                <form class="transmission-form" onsubmit="event.preventDefault(); handleForm(this);">
                     <input type="hidden" id="form-item-name" name="item_name">
 
                     <div class="input-group">
