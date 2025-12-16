@@ -158,16 +158,28 @@ document.addEventListener('DOMContentLoaded', () => {
 window.handleForm = function (form) {
     // Prevent Default is handled in HTML onsubmit="event.preventDefault(); handleForm(this);"
 
+    // Check if EmailJS is loaded
+    if (typeof emailjs === 'undefined') {
+        alert('SYSTEM ERROR: Secure transmission protocol (EmailJS) failed to load.\nPlease check your internet connection or disable ad-blockers.');
+        console.error('EmailJS object not found.');
+        return false;
+    }
+
     // Initialize EmailJS (Safe Check)
     try {
         emailjs.init("I6wZRF59tQI_B8luf");
-    } catch (e) { console.error("EmailJS Init Failed", e); }
+    } catch (e) {
+        console.error("EmailJS Init Failed", e);
+    }
 
     const btn = form.querySelector('button[type="submit"]');
+    if (!btn) return false; // Safety check
+
     const originalText = btn.innerHTML;
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> TRANSMITTING...';
     btn.disabled = true;
 
+    // Data Extraction
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
@@ -187,16 +199,19 @@ window.handleForm = function (form) {
         item_name: data.item_name
     };
 
+    // Send
     emailjs.send('service_hem4aor', 'template_9ddo88r', templateParams)
         .then(() => {
             const itemName = data.item_name || 'General Inquiry';
             window.location.href = `thank-you.html?item=${encodeURIComponent(itemName)}`;
-        }, (error) => {
+        })
+        .catch((error) => {
             alert('SIGNAL LOST: Could not send transmission. Please check your connection.');
             console.error('EmailJS Error:', error);
             btn.innerHTML = originalText;
             btn.disabled = false;
         });
+
     return false;
 };
 
