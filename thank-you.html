@@ -86,19 +86,16 @@
     </nav>
 
     <div class="thank-you-container">
-        <i class="fas fa-check-circle success-icon"></i>
-        <h1 class="success-title">TRANSMISSION RECEIVED</h1>
-        <p class="success-message">Your data has been securely uploaded to our servers. Our team is decoding your
-            request and will establish a connection shortly.</p>
-
-        <div class="transmission-log">
-            > CONNECTION ESTABLISHED<br>
-            > UPLOADING PACKETS... 100%<br>
-            > ENCRYPTION: SECURE<br>
-            > STATUS: CONFIRMED
+        <div class="thank-you-card">
+            <div class="icon-box">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1>TRANSMISSION RECEIVED</h1>
+            <p id="confirmation-text">Your data packet has been successfully uploaded to our secure servers.</p>
+            <p style="color: #4ade80; font-family: 'Courier New', monospace; margin: 10px 0;">REF: <span
+                    id="ref-id">#ORD-0000</span></p>
+            <a href="index.html" class="btn btn-primary">Return to Command</a>
         </div>
-
-        <a href="index.html" class="btn btn-primary">Return to Base</a>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>

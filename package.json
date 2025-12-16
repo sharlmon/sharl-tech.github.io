@@ -1,0 +1,12 @@
+{
+  "name": "sharl-tech-backend",
+  "version": "1.0.0",
+  "description": "Backend functions for Sharl-Tech",
+  "main": "index.js",
+  "dependencies": {
+    "nodemailer": "^6.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

@@ -10,6 +10,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
         .order-container {
             padding: 150px 20px 80px;
@@ -167,7 +168,7 @@
                     <div class="req-id">SESSION ID: <span id="session-id"></span></div>
                 </div>
 
-                <form class="transmission-form" action="https://formsubmit.co/sharlmon19@gmail.com" method="POST">
+                <form class="transmission-form" method="POST">
                     <input type="hidden" name="_next" value="https://sharl-tech.netlify.app/thank-you.html">
                     <input type="hidden" name="_subject" value="New Service Order - Sharl Tech">
                     <input type="hidden" name="_captcha" value="false">
@@ -298,6 +299,20 @@
             document.getElementById('item-price').innerText = selectedItem.price;
             document.getElementById('item-desc').innerText = selectedItem.desc;
             document.getElementById('form-item-name').value = selectedItem.title;
+
+            // Set form hidden input and dynamic redirect URL
+            const formItem = document.getElementById('form-item-name');
+            if (formItem) {
+                // The value is already set above, but ensuring consistency if this block was moved
+                formItem.value = selectedItem.title || 'General Inquiry';
+
+                // Dynamic Redirect URL
+                const nextInput = document.querySelector('input[name="_next"]');
+                if (nextInput) {
+                    // Ensure this matches your netlify domain exactly
+                    nextInput.value = `https://sharl-tech.netlify.app/thank-you.html?item=${encodeURIComponent(formItem.value)}`;
+                }
+            }
 
             const featureList = document.getElementById('item-features');
             featureList.innerHTML = selectedItem.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('');

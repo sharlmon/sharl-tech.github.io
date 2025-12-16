@@ -252,4 +252,58 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'auto';
         }
     });
+
+    // Attach AJAX Handler to ALL Forms (Index & Order)
+    // Initialize EmailJS
+    emailjs.init("I6wZRF59tQI_B8luf"); // Public Key
+
+    // Attach Handler to ALL Forms (Index & Order)
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Stop default FormSubmit
+
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> TRANSMITTING...';
+            btn.disabled = true;
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            // Check if item_name exists, if not try to find it in the DOM or default it
+            if (!data.item_name && document.getElementById('form-item-name')) {
+                data.item_name = document.getElementById('form-item-name').value;
+            }
+            if (!data.item_name) {
+                // If this is the contact form on index, it might not have an item_name
+                // Check if page URL has query param? Or just default
+                data.item_name = "General Inquiry";
+            }
+
+            // Prepare EmailJS params
+            // Make sure these match the {{variables}} in your template
+            const templateParams = {
+                name: data.name,
+                email: data.email,
+                phone: data.phone || 'N/A',
+                message: data.message,
+                item_name: data.item_name
+            };
+
+            emailjs.send('service_hem4aor', 'template_9ddo88r', templateParams)
+                .then(() => {
+                    // Success
+                    const itemName = data.item_name || 'General Inquiry';
+                    window.location.href = `thank-you.html?item=${encodeURIComponent(itemName)}`;
+                }, (error) => {
+                    // Failed
+                    alert('SIGNAL LOST: Check your connection and try again.');
+                    console.error('EmailJS Error:', error);
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                });
+        });
+    });
 });
+
