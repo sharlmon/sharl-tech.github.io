@@ -100,6 +100,19 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Parse URL parameters to customize the message
+        const urlParams = new URLSearchParams(window.location.search);
+        const item = urlParams.get('item');
+        const refId = '#ORD-' + Math.floor(Math.random() * 900000);
+
+        if (item) {
+            document.querySelector('.success-title').innerText = 'MISSION CONFIRMED';
+            document.getElementById('confirmation-text').innerHTML = `Requisition for <strong style="color: #fff;">${item}</strong> received.<br>Our operatives are reviewing your mission parameters.`;
+        }
+
+        document.getElementById('ref-id').innerText = refId;
+    </script>
 </body>
 
 </html>

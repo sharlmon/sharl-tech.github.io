@@ -97,7 +97,12 @@ const initThreeJS = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    initThreeJS();
+    // Safe ThreeJS Init
+    try {
+        initThreeJS();
+    } catch (err) {
+        console.warn('3D Background failed to load:', err);
+    }
 
     // Intersection Observer for Scroll Animations
     const observer = new IntersectionObserver((entries) => {
@@ -144,118 +149,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Service Modal Data
-const servicesData = {
-    'web': {
-        title: 'Web Design',
-        icon: 'fas fa-globe',
-        desc: 'Custom, responsive, and aesthetic websites tailored to your brand. We build everything from landing pages to complex portals.',
-        features: ['Responsive UI', 'Custom Branding', 'SEO Ready', 'Fast Loading']
-    },
-    'hosting': {
-        title: 'Web Hosting',
-        icon: 'fas fa-server',
-        desc: 'Reliable, high-speed hosting solutions ensuring your site is always online and performing at its peak.',
-        features: ['99.9% Uptime', 'SSD Storage', 'Daily Backups', '24/7 Support']
-    },
-    'seo': {
-        title: 'SEO & Marketing',
-        icon: 'fas fa-chart-line',
-        desc: 'Boost your visibility and drive traffic with our data-driven SEO and digital marketing strategies.',
-        features: ['Keyword Analysis', 'On-Page Optimization', 'Content Strategy', 'Traffic Analytics']
-    },
-    'app': {
-        title: 'App Development',
-        icon: 'fas fa-mobile-alt',
-        desc: 'Native and cross-platform mobile applications designed for seamless user experiences on iOS and Android.',
-        features: ['iOS & Android', 'Modern UI/UX', 'Cloud Integration', 'Maintenance']
-    },
-    'repair': {
-        title: 'IT Repair',
-        icon: 'fas fa-tools',
-        desc: 'Expert hardware diagnostics and repair for laptops, desktops, and mobile devices.',
-        features: ['Hardware Repair', 'Software Fixes', 'Virus Removal', 'Data Recovery']
-    },
-    'domain': {
-        title: 'Domain Registration',
-        icon: 'fas fa-link',
-        desc: 'Secure your perfect digital identity with our vast selection of TLDs and domain management tools.',
-        features: ['.com / .co.ke', 'DNS Management', 'Privacy Protection', 'Auto-Renewal']
-    }
-};
-
-// Navbar Scroll Effect
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// Modal Logic
+// Separate Form Handler - Runs independently to ensure functionality
 document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('service-modal');
-    const closeBtn = document.querySelector('.close-modal');
-    const serviceCards = document.querySelectorAll('.hex-wrapper');
-
-    // Elements to update
-    const mTitle = document.getElementById('modal-title');
-    const mIcon = document.getElementById('modal-icon');
-    const mDesc = document.getElementById('modal-desc');
-    const mFeatures = document.getElementById('modal-features');
-    const mBtn = document.getElementById('modal-btn');
-
-    // Purchase Button - Redirect to Order Page
-    mBtn.addEventListener('click', () => {
-        // Get current service key from modal title association or store it temporarily?
-        // Better way: Store the key on the opened modal or variable
-        const currentService = mTitle.getAttribute('data-active-service');
-        if (currentService) {
-            window.location.href = `order.html?service=${currentService}`;
-        }
-    });
-
-    serviceCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const serviceKey = card.getAttribute('data-service');
-            const data = servicesData[serviceKey];
-
-            if (data) {
-                // Set active service key
-                mTitle.setAttribute('data-active-service', serviceKey);
-
-                mTitle.innerText = data.title;
-                mIcon.className = data.icon;
-                mDesc.innerText = data.desc;
-
-                // Features
-                mFeatures.innerHTML = data.features.map(f => `<span class='feature-tag'>${f}</span>`).join('');
-
-                modal.classList.add('show');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            }
-        });
-    });
-
-    // Close Modal Logic
-    closeBtn.addEventListener('click', () => {
-        modal.classList.remove('show');
-        document.body.style.overflow = 'auto';
-    });
-
-    // Close on outside click
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.remove('show');
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Attach AJAX Handler to ALL Forms (Index & Order)
     // Initialize EmailJS
-    emailjs.init("I6wZRF59tQI_B8luf"); // Public Key
+    try {
+        emailjs.init("I6wZRF59tQI_B8luf"); // Public Key
+    } catch (e) {
+        console.error("EmailJS Init Failed:", e);
+        return;
+    }
 
     // Attach Handler to ALL Forms (Index & Order)
     const forms = document.querySelectorAll('form');
@@ -287,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: data.name,
                 email: data.email,
                 phone: data.phone || 'N/A',
-                message: data.message,
+                message: data.message || data.notes, // Support 'notes' from order.html
                 item_name: data.item_name
             };
 
@@ -298,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.location.href = `thank-you.html?item=${encodeURIComponent(itemName)}`;
                 }, (error) => {
                     // Failed
-                    alert('SIGNAL LOST: Check your connection and try again.');
+                    alert('SIGNAL LOST: Could not send transmission. Please check your connection.');
                     console.error('EmailJS Error:', error);
                     btn.innerHTML = originalText;
                     btn.disabled = false;
@@ -306,4 +208,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 
