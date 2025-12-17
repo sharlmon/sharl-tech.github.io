@@ -369,6 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function processImage(file) {
+        // ... (existing XMP logic remains) ...
         // Reset UI
         resultsContainer.classList.add('hidden');
         loadingIndicator.classList.remove('hidden');
@@ -386,7 +387,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 2. Extract Metadata
             if (window.exifr) {
-                // Parse specifically for XMP and common fields
                 const output = await exifr.parse(file, {
                     xmp: true,
                     tiff: false,
@@ -400,18 +400,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const getVal = (val) => {
                     if (!val) return null;
                     if (typeof val === 'string') return val;
-                    if (typeof val === 'object' && val.value) return val.value; // Some XMP fields are objects
+                    if (typeof val === 'object' && val.value) return val.value;
                     if (Array.isArray(val)) return val.join(', ');
                     return JSON.stringify(val);
                 };
 
-                // Title
                 titleEl.textContent = getVal(output?.title) || getVal(output?.Title) || getVal(output?.['dc:title']) || 'Not Found';
-
-                // Description
                 descEl.textContent = getVal(output?.description) || getVal(output?.Description) || getVal(output?.['dc:description']) || 'Not Found';
-
-                // Rights
                 rightsEl.textContent = getVal(output?.rights) || getVal(output?.Rights) || getVal(output?.['dc:rights']) || getVal(output?.['xmpRights:Marked']) || 'Not Found';
 
             } else {
@@ -429,3 +424,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// Cursor Spotlight Effect for Pricing Cards
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.pricing-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+});
+

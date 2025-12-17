@@ -1535,4 +1535,132 @@ a {
     100% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
     }
+}/* --- Enhanced Portfolio Section --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.case-file {
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid #333;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border-radius: 5px;
+}
+
+.case-file::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(74, 222, 128, 0) 0%, rgba(74, 222, 128, 0.05) 100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.case-file:hover {
+    transform: translateY(-5px);
+    border-color: #4ade80;
+    box-shadow: 0 10px 30px rgba(74, 222, 128, 0.15);
+}
+
+.case-file:hover::after {
+    opacity: 1;
+}
+
+.case-visual {
+    height: 180px;
+    background: radial-gradient(circle at center, #222 0%, #111 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    color: #444;
+    border-bottom: 1px solid #333;
+    position: relative;
+    transition: 0.3s;
+}
+
+.case-file:hover .case-visual {
+    color: #4ade80;
+    text-shadow: 0 0 20px rgba(74, 222, 128, 0.5);
+}
+
+/* Status Badges */
+.case-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 0.7rem;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 4px 8px;
+    border: 1px solid;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.case-status.completed {
+    color: #4ade80;
+    border-color: #4ade80;
+}
+
+.case-status.in-progress {
+    color: #fbbf24;
+    border-color: #fbbf24;
+    animation: blinker 2s infinite;
+}
+
+.case-status.live {
+    color: #38bdf8;
+    border-color: #38bdf8;
+    box-shadow: 0 0 5px rgba(56, 189, 248, 0.4);
+}
+
+.case-info {
+    padding: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.case-info h4 {
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.tech-mono {
+    font-family: 'Courier New', Courier, monospace;
+    color: #999;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+}
+
+/* Static Non-Clickable Links */
+.static-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-top: 15px;
+    border-top: 1px solid #222;
+    width: 100%;
+    cursor: default;
+    user-select: none;
+}
+
+.case-file:hover .static-link {
+    color: #888;
+    border-color: #444;
 }
