@@ -148,19 +148,25 @@ a {
 }
 
 .glitch {
-    font-size: 5rem;
-    font-weight: 900;
+    font-size: 6rem;
+    /* Larger */
+    font-weight: 300;
+    /* Thinner for elegance */
     margin-bottom: 20px;
     position: relative;
-    font-family: 'Orbitron', sans-serif;
-    /* Techy Font */
-    letter-spacing: 5px;
-    text-shadow: 0 0 10px rgba(74, 222, 128, 0.5), 0 0 20px rgba(74, 222, 128, 0.3);
-    /* Green Tech Glow */
-    background: linear-gradient(180deg, #ffffff 0%, #bbf7d0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-family: 'Space Grotesk', sans-serif;
+    /* Cleaner than Orbitron */
+    letter-spacing: 1px;
+    /* Less spacing for cohesion */
+    color: white;
+    text-transform: uppercase;
+    /* Subtle Glow */
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    background: none;
+    -webkit-text-fill-color: initial;
 }
+
+/* Optional: Add a very subtle gradient overlay if needed, but white + thin is very high-end tech */
 
 .hero-sub {
     font-size: 1.5rem;
@@ -220,17 +226,20 @@ a {
     background: rgba(255, 255, 255, 0.05);
 }
 
+/* Clean Tech Buttons */
 .btn-primary {
-    background: white;
-    color: black;
-    border: none;
+    background: transparent;
+    color: #4ade80;
+    /* Neon Green Text */
+    border: 1px solid #4ade80;
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
 }
 
 .btn-primary:hover {
-    background: white;
+    background: #4ade80;
     color: black;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-    /* Keep primary solid but add glow */
+    box-shadow: 0 0 30px rgba(74, 222, 128, 0.6);
+    letter-spacing: 3px;
 }
 
 /* Scroll Indication */
@@ -1810,6 +1819,7 @@ a {
     opacity: 0.2;
     background-image: radial-gradient(#4ade80 1px, transparent 1px);
 }
+
 /* ---------------------------------------------------- */
 /* PRICING PAGE SPECIFIC STYLES                         */
 /* ---------------------------------------------------- */
@@ -1854,7 +1864,7 @@ a {
     font-family: var(--font-body);
     font-size: 1rem;
     cursor: pointer;
-    appearance: none; 
+    appearance: none;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
     background-position: right 15px top 50%;
@@ -1867,24 +1877,28 @@ a {
 }
 
 /* Tech Radio & Checkbox */
-.radio-group, .checkbox-group {
+.radio-group,
+.checkbox-group {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-.tech-radio, .tech-checkbox {
+.tech-radio,
+.tech-checkbox {
     cursor: pointer;
     position: relative;
 }
 
-.tech-radio input, .tech-checkbox input {
+.tech-radio input,
+.tech-checkbox input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
 
-.radio-box, .check-box {
+.radio-box,
+.check-box {
     display: flex;
     flex-direction: column;
     padding: 15px 25px;
@@ -1896,15 +1910,16 @@ a {
 }
 
 /* Selection State */
-.tech-radio input:checked ~ .radio-box,
-.tech-checkbox input:checked ~ .check-box {
+.tech-radio input:checked~.radio-box,
+.tech-checkbox input:checked~.check-box {
     background: white;
     color: black;
     border-color: white;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
-.r-title, .check-box {
+.r-title,
+.check-box {
     font-weight: 700;
     font-size: 1rem;
     display: block;
@@ -1996,23 +2011,26 @@ a {
     .calculator-wrapper {
         padding: 20px;
     }
-    
-    .radio-group, .checkbox-group {
+
+    .radio-group,
+    .checkbox-group {
         flex-direction: column;
     }
-    
-    .tech-radio, .tech-checkbox {
+
+    .tech-radio,
+    .tech-checkbox {
         width: 100%;
     }
-    
-    .radio-box, .check-box {
+
+    .radio-box,
+    .check-box {
         width: 100%;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         text-align: left;
     }
-    
+
     .result-value {
         font-size: 2.5rem;
     }
