@@ -305,10 +305,12 @@ window.handleForm = function (form) {
         email: data.email,
         phone: data.phone || 'N/A',
         message: data.message || data.notes,
-        item_name: data.item_name
+        item_name: data.item_name,
+        invoice_items: data.invoice_items || '', // HTML Table Rows
+        total_amount: data.total_amount || ''    // Total Price String
     };
 
-    // Append Detailed Quote Breakdown if available
+    // Append Detailed Quote Breakdown if available (Legacy/Backup)
     if (data.quote_details) {
         templateParams.message += "\n\n--- QUOTE BREAKDOWN ---\n" + data.quote_details;
     }
