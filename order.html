@@ -346,6 +346,37 @@
             const featureList = document.getElementById('item-features');
             featureList.innerHTML = selectedItem.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('');
 
+            // --- GENERATE INVOICE DATA FOR STANDARD PACKAGE ---
+            let invoiceRows = `
+                <tr style="border-bottom: 1px solid #333;">
+                    <td style="padding: 10px; color: #ddd;">${selectedItem.title}</td>
+                    <td style="padding: 10px; text-align: right; color: #4ade80; font-family: monospace;">${selectedItem.price}</td>
+                </tr>`;
+
+            const form = document.querySelector('.transmission-form');
+
+            // Hidden Input: invoice_items
+            let invoiceInput = document.getElementById('invoice-items');
+            if (!invoiceInput) {
+                invoiceInput = document.createElement('input');
+                invoiceInput.type = 'hidden';
+                invoiceInput.name = 'invoice_items';
+                invoiceInput.id = 'invoice-items';
+                form.appendChild(invoiceInput);
+            }
+            invoiceInput.value = invoiceRows;
+
+            // Hidden Input: total_amount
+            let totalInput = document.getElementById('total-amount');
+            if (!totalInput) {
+                totalInput = document.createElement('input');
+                totalInput.type = 'hidden';
+                totalInput.name = 'total_amount';
+                totalInput.id = 'total-amount';
+                form.appendChild(totalInput);
+            }
+            totalInput.value = selectedItem.price;
+
             // CHECK FOR CUSTOM QUOTE DATA
         } else if (urlParams.get('quote_data')) {
             try {
