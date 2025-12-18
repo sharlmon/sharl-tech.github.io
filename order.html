@@ -175,38 +175,52 @@
             </div>
 
             <!-- Right: Contact Form -->
-            <div class="requisition-panel">
+            <div class="requisition-panel"
+                style="position: relative; overflow: hidden; border: 1px solid rgba(142, 197, 73, 0.3); box-shadow: 0 0 20px rgba(142, 197, 73, 0.1);">
+                <!-- Secure Status Bar -->
+                <div
+                    style="background: rgba(142, 197, 73, 0.1); padding: 8px 15px; margin: -40px -40px 30px -40px; border-bottom: 1px solid rgba(142, 197, 73, 0.2); display: flex; align-items: center; justify-content: space-between; font-family: 'Courier New', monospace; font-size: 0.8rem; color: #8ec549;">
+                    <span><i class="fas fa-lock"></i> SECURE TRANSMISSION</span>
+                    <span id="connection-status">LINK ESTABLISHED :: 100%</span>
+                </div>
+
                 <div class="req-header">
-                    <h3>COMPLETE REQUISITION</h3>
-                    <div class="req-id">SESSION ID: <span id="session-id"></span></div>
+                    <h3 style="color: #fff; margin-bottom: 5px;">FINALIZE REQUISITION</h3>
+                    <div class="req-id">SESSION ID: <span id="session-id" style="color: #4ade80;"></span></div>
+                    <p style="color: #aaa; font-size: 0.9rem; margin-top: 10px;">Please confirm your contact coordinates
+                        below.</p>
                 </div>
 
                 <form class="transmission-form" onsubmit="event.preventDefault(); handleForm(this);">
                     <input type="hidden" id="form-item-name" name="item_name">
 
                     <div class="input-group">
-                        <input type="text" name="name" required>
-                        <label>Identity (Name)</label>
+                        <input type="text" name="name" required style="border-color: rgba(255,255,255,0.2);">
+                        <label><i class="fas fa-user-astronaut"></i> Full Name</label>
                         <span class="focus-border"></span>
                     </div>
                     <div class="input-group">
-                        <input type="email" name="email" required>
-                        <label>Signal Frequency (Email)</label>
+                        <input type="email" name="email" required style="border-color: rgba(255,255,255,0.2);">
+                        <label><i class="fas fa-envelope"></i> Email Address</label>
                         <span class="focus-border"></span>
                     </div>
                     <div class="input-group">
-                        <input type="tel" name="phone">
-                        <label>Comms Link (Phone - Optional)</label>
+                        <input type="tel" name="phone" style="border-color: rgba(255,255,255,0.2);">
+                        <label><i class="fas fa-mobile-alt"></i> Phone Number (Optional)</label>
                         <span class="focus-border"></span>
                     </div>
                     <div class="input-group">
-                        <textarea name="notes" rows="4"></textarea>
-                        <label>Additional Specs (Notes)</label>
+                        <textarea name="notes" rows="4" style="border-color: rgba(255,255,255,0.2);"></textarea>
+                        <label><i class="fas fa-file-alt"></i> Additional Project Details</label>
                         <span class="focus-border"></span>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">
-                        CONFIRM ORDER <i class="fas fa-check-circle"></i>
+                    <button type="submit" class="btn btn-primary btn-block"
+                        style="background: #8ec549; color: #000; font-weight: bold; border: none; padding: 15px; letter-spacing: 1px; text-transform: uppercase;">
+                        Confirm & Initialize <i class="fas fa-rocket" style="margin-left: 10px;"></i>
                     </button>
+                    <div style="text-align: center; margin-top: 15px; font-size: 0.8rem; color: #666;">
+                        <i class="fas fa-shield-alt"></i> Data is encrypted and secure.
+                    </div>
                 </form>
             </div>
         </div>
