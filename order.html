@@ -409,10 +409,15 @@
                 let invoiceRows = '';
 
                 const addRow = (item, price) => {
+                    let displayPrice = price;
+                    if (typeof price === 'number') {
+                        displayPrice = "KES " + price.toLocaleString();
+                    }
+
                     invoiceRows += `
                         <tr style="border-bottom: 1px solid #333;">
                             <td style="padding: 10px; color: #ddd;">${item}</td>
-                            <td style="padding: 10px; text-align: right; color: #4ade80; font-family: monospace;">KES ${price.toLocaleString()}</td>
+                            <td style="padding: 10px; text-align: right; color: #4ade80; font-family: monospace;">${displayPrice}</td>
                         </tr>`;
                 };
 

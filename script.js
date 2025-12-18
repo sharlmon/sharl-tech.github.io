@@ -300,14 +300,19 @@ window.handleForm = function (form) {
         data.item_name = "General Inquiry";
     }
 
+    // Explicitly grab hidden inputs to guarantee data presence (Fix for missing invoice details)
+    const invoiceEl = document.getElementById('invoice-items');
+    const totalEl = document.getElementById('total-amount');
+
     const templateParams = {
         name: data.name,
         email: data.email,
         phone: data.phone || 'N/A',
         message: data.message || data.notes,
         item_name: data.item_name,
-        invoice_items: data.invoice_items || '', // HTML Table Rows
-        total_amount: data.total_amount || ''    // Total Price String
+        // Prioritize DOM element value over FormData
+        invoice_items: (invoiceEl && invoiceEl.value) ? invoiceEl.value : (data.invoice_items || ''),
+        total_amount: (totalEl && totalEl.value) ? totalEl.value : (data.total_amount || '')
     };
 
     // Append Detailed Quote Breakdown if available (Legacy/Backup)
