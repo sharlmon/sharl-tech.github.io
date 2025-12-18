@@ -495,7 +495,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const siteTypePrice = parseInt(siteTypeSelect.value) || 0;
 
                 const hostingEl = quoteForm.querySelector('input[name="hosting"]:checked');
-                const hostingText = hostingEl ? hostingEl.closest('.radio-box').querySelector('.r-title').innerText : 'None';
+                // FIX: closest('.radio-box') was failing because input is a sibling of .radio-box, not a child.
+                // Using closest('label') or the wrapper class .tech-radio
+                const hostingText = hostingEl ? hostingEl.closest('.tech-radio').querySelector('.r-title').innerText : 'None';
                 const hostingPrice = hostingEl ? parseInt(hostingEl.value) : 0;
 
                 const domainSelect = document.getElementById('domain-select');
@@ -504,11 +506,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const addons = [];
                 quoteForm.querySelectorAll('input[name="addon"]:checked').forEach(cb => {
-                    const label = cb.closest('.check-box').querySelector('span:last-child').innerText;
+                    // FIX: Same here, accessing via parent wrapper
+                    const label = cb.closest('.tech-checkbox').querySelector('.check-box span:last-child').innerText;
                     addons.push(label);
                 });
                 quoteForm.querySelectorAll('input[name="maintenance"]:checked').forEach(cb => {
-                    const label = cb.closest('.check-box').querySelector('span:last-child').innerText;
+                    const label = cb.closest('.tech-checkbox').querySelector('.check-box span:last-child').innerText;
                     addons.push(label);
                 });
 
