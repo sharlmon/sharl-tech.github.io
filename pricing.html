@@ -87,8 +87,6 @@
         <div class="container">
             <h3 class="section-title">TAILOR YOUR SOLUTION</h3>
 
-
-
             <div class="calculator-wrapper glass-card">
                 <form id="quote-form">
                     <!-- Option 1: Website Type -->
@@ -134,73 +132,71 @@
 
                     <!-- Option 3: Domain -->
                     <div class="calc-step">
-                        <div class="calc-step">
-                            <h5>3. CHECK AVAILABILITY & SELECT EXTENSION</h5>
-                            <!-- Integrated Dark Theme Domain Search -->
-                            <div style="margin-bottom: 20px;">
-                                <label
-                                    style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: #aaa;">Search
-                                    availability first (Optional)</label>
-                                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                                    <input type="text" id="domain-search-input" placeholder="e.g. sharltech"
-                                        style="flex: 1; min-width: 200px; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 4px; outline: none;">
-                                    <button type="button" onclick="checkDomain()" class="btn btn-primary"
-                                        style="padding: 12px 25px; border: none; min-width: 120px;">
-                                        Check
-                                    </button>
-                                </div>
-                                <div id="domain-result" style="margin-top: 10px; font-size: 0.9rem; min-height: 20px;">
-                                </div>
+                        <h5>3. CHECK AVAILABILITY & SELECT EXTENSION</h5>
+                        <!-- Integrated Dark Theme Domain Search -->
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: #aaa;">Search
+                                availability first (Optional)</label>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                <input type="text" id="domain-search-input" placeholder="e.g. sharltech"
+                                    style="flex: 1; min-width: 200px; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 4px; outline: none;">
+                                <button type="button" onclick="checkDomain()" class="btn btn-primary"
+                                    style="padding: 12px 25px; border: none; min-width: 120px;">
+                                    Check
+                                </button>
                             </div>
-
-                            <div class="select-group">
-                                <select id="domain-select" class="tech-select">
-                                    <option value="0" disabled selected>Select Domain Extension...</option>
-                                    <option value="0">.co.ke - FREE</option>
-                                    <option value="2050">.com - KES 2,050</option>
-                                    <option value="2850">.net - KES 2,850</option>
-                                    <option value="2050">.org - KES 2,050</option>
-                                    <option value="1250">.info - KES 1,250</option>
-                                    <option value="1800">.biz - KES 1,800</option>
-                                    <option value="750">.xyz - KES 750</option>
-                                    <option value="4300">.online - KES 4,300</option>
-                                    <option value="1880">.me - KES 1,880</option>
-                                    <option value="6700">.io - KES 6,700</option>
-                                    <option value="1200">.blog - KES 1,200</option>
-                                    <option value="700">.club - KES 700</option>
-                                    <option value="700">.site - KES 700</option>
-                                    <option value="1000">.top - KES 1,000</option>
-                                </select>
+                            <div id="domain-result" style="margin-top: 10px; font-size: 0.9rem; min-height: 20px;">
                             </div>
                         </div>
 
-                        <!-- Option 4: Add-ons -->
-                        <div class="calc-step">
-                            <h5>4. TACTICAL UPGRADES</h5>
-                            <div class="checkbox-group">
-                                <label class="tech-checkbox">
-                                    <input type="checkbox" name="addon" value="1000">
-                                    <span class="check-box">
-                                        <i class="fas fa-pen-nib"></i>
-                                        <span>Logo Design (+1k)</span>
-                                    </span>
-                                </label>
-                                <label class="tech-checkbox">
-                                    <input type="checkbox" name="addon" value="7000">
-                                    <span class="check-box">
-                                        <i class="fas fa-keyboard"></i>
-                                        <span>Pro Copywriting (+7k)</span>
-                                    </span>
-                                </label>
-                                <label class="tech-checkbox">
-                                    <input type="checkbox" name="maintenance" value="2000">
-                                    <span class="check-box">
-                                        <i class="fas fa-tools"></i>
-                                        <span>Monthly Maint. (+2k/mo)</span>
-                                    </span>
-                                </label>
-                            </div>
+                        <div class="select-group">
+                            <select id="domain-select" class="tech-select">
+                                <option value="0" disabled selected>Select Domain Extension...</option>
+                                <option value="0">.co.ke - FREE</option>
+                                <option value="2050">.com - KES 2,050</option>
+                                <option value="2850">.net - KES 2,850</option>
+                                <option value="2050">.org - KES 2,050</option>
+                                <option value="1250">.info - KES 1,250</option>
+                                <option value="1800">.biz - KES 1,800</option>
+                                <option value="750">.xyz - KES 750</option>
+                                <option value="4300">.online - KES 4,300</option>
+                                <option value="1880">.me - KES 1,880</option>
+                                <option value="6700">.io - KES 6,700</option>
+                                <option value="1200">.blog - KES 1,200</option>
+                                <option value="700">.club - KES 700</option>
+                                <option value="700">.site - KES 700</option>
+                                <option value="1000">.top - KES 1,000</option>
+                            </select>
                         </div>
+                    </div>
+
+                    <!-- Option 4: Add-ons -->
+                    <div class="calc-step">
+                        <h5>4. TACTICAL UPGRADES</h5>
+                        <div class="checkbox-group">
+                            <label class="tech-checkbox">
+                                <input type="checkbox" name="addon" value="1000">
+                                <span class="check-box">
+                                    <i class="fas fa-pen-nib"></i>
+                                    <span>Logo Design (+1k)</span>
+                                </span>
+                            </label>
+                            <label class="tech-checkbox">
+                                <input type="checkbox" name="addon" value="7000">
+                                <span class="check-box">
+                                    <i class="fas fa-keyboard"></i>
+                                    <span>Pro Copywriting (+7k)</span>
+                                </span>
+                            </label>
+                            <label class="tech-checkbox">
+                                <input type="checkbox" name="maintenance" value="2000">
+                                <span class="check-box">
+                                    <i class="fas fa-tools"></i>
+                                    <span>Monthly Maint. (+2k/mo)</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
                 </form>
 
                 <!-- Result Display -->
