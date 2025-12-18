@@ -236,7 +236,8 @@
     <script src="script.js"></script>
     <script>
         // Data Store - Local Definition to ensure fallback reliability
-        const servicesData = {
+        // Renamed to 'localServicesData' to prevent "Identifier has already been declared" errors
+        const localServicesData = {
             'web': {
                 type: 'SERVICE',
                 title: 'Web Design',
@@ -310,12 +311,12 @@
 
         let selectedItem = null;
 
-        // 1. Check for Standard Service/Package Key
-        if (serviceKey && servicesData[serviceKey]) {
-            selectedItem = servicesData[serviceKey];
+        // 1. Check for Standard Service/Package Key using local data
+        if (serviceKey && localServicesData[serviceKey]) {
+            selectedItem = localServicesData[serviceKey];
             // 2. Compatibility check for "plan" parameter from old links
-        } else if (urlParams.get('plan') && servicesData[urlParams.get('plan')]) {
-            selectedItem = servicesData[urlParams.get('plan')];
+        } else if (urlParams.get('plan') && localServicesData[urlParams.get('plan')]) {
+            selectedItem = localServicesData[urlParams.get('plan')];
         }
 
         // Generate Random Session ID
