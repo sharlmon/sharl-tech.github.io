@@ -235,133 +235,87 @@
 
     <script src="script.js"></script>
     <script>
-        // Data Store (Duplicated from script.js + Pricing Data)
-        const db = {
-            plans: {
-                'starter': {
-                    type: 'Package',
-                    title: 'The Launchpad',
-                    price: 'KES 13,500',
-                    desc: 'Perfect for small businesses establishing a digital footprint.',
-                    features: ['Single Page Design', 'Free .co.ke Domain', 'Basic Hosting (1 Yr)', 'Social Media Links']
-                },
-                'business': {
-                    type: 'Package',
-                    title: 'Business Pro',
-                    price: 'KES 19,500 - 25,000',
-                    desc: 'A robust solution for growing companies needing more interactions.',
-                    features: ['Up to 10 Pages', 'Standard Hosting', 'Free .co.ke Domain', 'WhatsApp Integration']
-                },
-                'executive': {
-                    type: 'Package',
-                    title: 'E-Commerce Suite',
-                    price: 'KES 40,000+',
-                    desc: 'The ultimate digital command center for online stores.',
-                    features: ['Full Product Catalog', 'M-Pesa Integration', 'Free .co.ke Domain', 'Free SSL Certificate']
-                }
+        // Data Store - Local Definition to ensure fallback reliability
+        const servicesData = {
+            'web': {
+                type: 'SERVICE',
+                title: 'Web Design',
+                price: 'Custom',
+                desc: 'Custom, responsive, and aesthetic websites tailored to your brand.',
+                features: ['Responsive UI', 'Custom Branding', 'SEO Ready', 'Fast Loading']
             },
-            services: {
-                'web': {
-                    type: 'Service',
-                    title: 'Web Design',
-                    price: 'Custom Quote',
-                    desc: 'Custom, responsive, and aesthetic websites tailored to your brand.',
-                    features: ['Responsive UI', 'Custom Branding', 'SEO Ready', 'Fast Loading']
-                },
-                'hosting': {
-                    type: 'Service',
-                    title: 'Web Hosting',
-                    price: 'Starting from KES 3,000/yr',
-                    desc: 'Reliable, high-speed hosting solutions ensuring your site is always online.',
-                    features: ['99.9% Uptime', 'SSD Storage', 'Daily Backups', '24/7 Support']
-                },
-                'seo': {
-                    type: 'Service',
-                    title: 'SEO & Marketing',
-                    price: 'Custom Quote',
-                    desc: 'Boost your visibility and drive traffic with data-driven strategies.',
-                    features: ['Keyword Analysis', 'On-Page Optimization', 'Content Strategy']
-                },
-                'app': {
-                    type: 'Service',
-                    title: 'App Development',
-                    price: 'Custom Quote',
-                    desc: 'Native and cross-platform mobile applications for iOS and Android.',
-                    features: ['iOS & Android', 'Modern UI/UX', 'Cloud Integration']
-                },
-                'repair': {
-                    type: 'Service',
-                    title: 'IT Repair',
-                    price: 'Service Based',
-                    desc: 'Expert hardware diagnostics and repair for all devices.',
-                    features: ['Hardware Repair', 'Software Fixes', 'Virus Removal']
-                },
-                'domain': {
-                    type: 'Service',
-                    title: 'Domain Registration',
-                    // Define servicesData logic LOCALLY to ensure it exists before parsing
-                    // (This acts as a fallback if script.js loads late or fails)
-                    const servicesData = {
-                        'web': {
-                            type: 'SERVICE',
-                            title: 'Web Design',
-                            price: 'Custom',
-                            desc: 'Custom, responsive, and aesthetic websites tailored to your brand.',
-                            features: ['Responsive UI', 'Custom Branding', 'SEO Ready', 'Fast Loading']
-                        },
-                        'hosting': {
-                            type: 'SERVICE',
-                            title: 'Web Hosting',
-                            price: 'KES 5,000/yr',
-                            desc: 'Reliable, high-speed hosting solutions ensuring your site is always online.',
-                            features: ['99.9% Uptime', 'SSD Storage', 'Daily Backups', '24/7 Support']
-                        },
-                        'seo': {
-                            type: 'SERVICE',
-                            title: 'SEO & Marketing',
-                            price: 'KES 15,000/mo',
-                            desc: 'Boost your visibility and drive traffic with our data-driven strategies.',
-                            features: ['Keyword Analysis', 'On-Page Optimization', 'Content Strategy', 'Traffic Analytics']
-                        },
-                        'app': {
-                            type: 'SERVICE',
-                            title: 'App Development',
-                            price: 'Custom',
-                            desc: 'Native and cross-platform mobile applications.',
-                            features: ['iOS & Android', 'Modern UI/UX', 'Cloud Integration', 'Maintenance']
-                        },
-                        'starter': { // Added Package Definitions
-                            type: 'PACKAGE',
-                            title: 'Starter Package',
-                            price: 'KES 25,000',
-                            desc: 'Perfect for small businesses or personal portfolios.',
-                            features: ['5 Page Website', '1 Year Free Hosting', 'Basic SEO', 'Inquiry Form', 'Social Media Links']
-                        },
-                        'business': { // Added Package Definitions
-                            type: 'PACKAGE',
-                            title: 'Business Package',
-                            price: 'KES 45,000',
-                            desc: 'Ideal for growing businesses needing dynamic features.',
-                            features: ['10 Page Website', 'CMS Integration', 'Advanced SEO', 'Blog Section', 'Google Analytics']
-                        },
-                        'executive': { // Added Package Definitions
-                            type: 'PACKAGE',
-                            title: 'Executive Package',
-                            price: 'KES 80,000',
-                            desc: 'Full-scale solution for established enterprises.',
-                            features: ['Unlimited Pages', 'E-commerce (10 products)', 'Priority Support', 'Custom Functionality', 'Yearly Maintenance']
-                        }
-                    };
+            'hosting': {
+                type: 'SERVICE',
+                title: 'Web Hosting',
+                price: 'KES 5,000/yr',
+                desc: 'Reliable, high-speed hosting solutions ensuring your site is always online.',
+                features: ['99.9% Uptime', 'SSD Storage', 'Daily Backups', '24/7 Support']
+            },
+            'seo': {
+                type: 'SERVICE',
+                title: 'SEO & Marketing',
+                price: 'KES 15,000/mo',
+                desc: 'Boost your visibility and drive traffic with our data-driven strategies.',
+                features: ['Keyword Analysis', 'On-Page Optimization', 'Content Strategy', 'Traffic Analytics']
+            },
+            'app': {
+                type: 'SERVICE',
+                title: 'App Development',
+                price: 'Custom',
+                desc: 'Native and cross-platform mobile applications.',
+                features: ['iOS & Android', 'Modern UI/UX', 'Cloud Integration', 'Maintenance']
+            },
+            'repair': {
+                type: 'SERVICE',
+                title: 'IT Repair',
+                price: 'Service Based',
+                desc: 'Expert hardware diagnostics and repair for all devices.',
+                features: ['Hardware Repair', 'Software Fixes', 'Virus Removal']
+            },
+            'domain': {
+                type: 'SERVICE',
+                title: 'Domain Registration',
+                price: 'Starting from KES 700/yr',
+                desc: 'Secure your perfect digital identity with our vast selection of TLDs.',
+                features: ['.com / .co.ke', 'DNS Management', 'Auto-Renewal']
+            },
+            // PACKAGES
+            'starter': {
+                type: 'PACKAGE',
+                title: 'Starter Package',
+                price: 'KES 25,000',
+                desc: 'Perfect for small businesses or personal portfolios.',
+                features: ['5 Page Website', '1 Year Free Hosting', 'Basic SEO', 'Inquiry Form', 'Social Media Links']
+            },
+            'business': {
+                type: 'PACKAGE',
+                title: 'Business Package',
+                price: 'KES 45,000',
+                desc: 'Ideal for growing businesses needing dynamic features.',
+                features: ['10 Page Website', 'CMS Integration', 'Advanced SEO', 'Blog Section', 'Google Analytics']
+            },
+            'executive': {
+                type: 'PACKAGE',
+                title: 'Executive Package',
+                price: 'KES 80,000',
+                desc: 'Full-scale solution for established enterprises.',
+                features: ['Unlimited Pages', 'E-commerce (10 products)', 'Priority Support', 'Custom Functionality', 'Yearly Maintenance']
+            }
+        };
 
-                    // Parse URL parameters
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const serviceKey = urlParams.get('service');
-                    const quoteDataParam = urlParams.get('quote_data');
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceKey = urlParams.get('service');
+        const quoteDataParam = urlParams.get('quote_data');
 
-                    let selectedItem = null;
+        let selectedItem = null;
 
-                    if(serviceKey && servicesData[serviceKey]) {
-                        selectedItem = servicesData[serviceKey];
+        // 1. Check for Standard Service/Package Key
+        if (serviceKey && servicesData[serviceKey]) {
+            selectedItem = servicesData[serviceKey];
+            // 2. Compatibility check for "plan" parameter from old links
+        } else if (urlParams.get('plan') && servicesData[urlParams.get('plan')]) {
+            selectedItem = servicesData[urlParams.get('plan')];
         }
 
         // Generate Random Session ID
@@ -378,13 +332,9 @@
             // Set form hidden input and dynamic redirect URL
             const formItem = document.getElementById('form-item-name');
             if (formItem) {
-                // The value is already set above, but ensuring consistency if this block was moved
                 formItem.value = selectedItem.title || 'General Inquiry';
-
-                // Dynamic Redirect URL
                 const nextInput = document.querySelector('input[name="_next"]');
                 if (nextInput) {
-                    // Ensure this matches your netlify domain exactly
                     nextInput.value = `https://sharl-tech.netlify.app/thank-you.html?item=${encodeURIComponent(formItem.value)}`;
                 }
             }
@@ -424,9 +374,9 @@
             totalInput.value = selectedItem.price;
 
             // CHECK FOR CUSTOM QUOTE DATA
-        } else if (urlParams.get('quote_data')) {
+        } else if (quoteDataParam) {
             try {
-                const quoteData = JSON.parse(decodeURIComponent(urlParams.get('quote_data')));
+                const quoteData = JSON.parse(decodeURIComponent(quoteDataParam));
 
                 document.getElementById('item-type').innerText = "CUSTOM QUOTE";
                 document.getElementById('item-title').innerText = "Your Configuration";
@@ -442,7 +392,7 @@
                 featuresHTML += `<li><i class="fas fa-server"></i> <strong>Hosting:</strong> ${quoteData.hosting.name}</li>`;
                 featuresHTML += `<li><i class="fas fa-globe"></i> <strong>Domain:</strong> ${quoteData.domain.name}</li>`;
 
-                if (quoteData.addons.length > 0) {
+                if (quoteData.addons && quoteData.addons.length > 0) {
                     featuresHTML += `<li><i class="fas fa-tools"></i> <strong>Add-ons:</strong> ${quoteData.addons.join(', ')}</li>`;
                 } else {
                     featuresHTML += `<li><i class="fas fa-ban"></i> No Add-ons Selected</li>`;
@@ -450,16 +400,13 @@
 
                 featureList.innerHTML = featuresHTML;
 
-                // Prepare Invoice Items HTML for Email HTML Table
-                // Format: <tr style="border-bottom:1px solid #ddd;"> <td style="padding:10px;">Item Name</td> <td style="padding:10px;text-align:right;">Price</td> </tr>
+                // Prepare Invoice Items for Email
                 let invoiceRows = '';
-
                 const addRow = (item, price) => {
                     let displayPrice = price;
                     if (typeof price === 'number') {
                         displayPrice = "KES " + price.toLocaleString();
                     }
-
                     invoiceRows += `
                         <tr style="border-bottom: 1px solid #333;">
                             <td style="padding: 10px; color: #ddd;">${item}</td>
@@ -467,23 +414,18 @@
                         </tr>`;
                 };
 
-                // Add Service
-                addRow(quoteData.service.name, quoteData.service.price);
-                // Add Hosting
-                addRow(quoteData.hosting.name, quoteData.hosting.price);
-                // Add Domain
-                addRow(quoteData.domain.name, quoteData.domain.price);
-                // Add Addons
-                if (quoteData.addons.length > 0) {
+                // Add Items
+                if (quoteData.service) addRow(quoteData.service.name, quoteData.service.price);
+                if (quoteData.hosting) addRow(quoteData.hosting.name, quoteData.hosting.price);
+                if (quoteData.domain) addRow(quoteData.domain.name, quoteData.domain.price);
+
+                if (quoteData.addons && quoteData.addons.length > 0) {
                     quoteData.addons.forEach(addon => {
-                        // Assumption: Addon price is not split in the array, using placeholder or generic text if precise price isn't captured per item in array. 
-                        // In logic, addons was just array of strings. We'll list them.
-                        // Ideally we should fix the upstream logic to capture price objects, but for now:
                         addRow(addon, "-");
                     });
                 }
 
-                // Create Hidden Input for Invoice HTML
+                // Create Hidden Inputs
                 const form = document.querySelector('.transmission-form');
 
                 let invoiceInput = document.getElementById('invoice-items');
@@ -510,10 +452,10 @@
                 console.error("Error parsing quote data", e);
                 document.getElementById('item-title').innerText = 'Error Loading Quote';
             }
-
         } else {
-            document.getElementById('item-title').innerText = 'Item Not Found';
-            document.getElementById('item-desc').innerText = 'The requested service or package could not be located.';
+            // Default or Error State
+            document.getElementById('item-title').innerText = 'Select a Service';
+            document.getElementById('item-desc').innerText = 'Please return to the home page and select a service plan.';
         }
     </script>
 </body>
