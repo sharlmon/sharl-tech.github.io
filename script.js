@@ -531,3 +531,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+// Domain Availability Checker (Google DNS API)
+async function checkDomain() {
+    const input = document.getElementById('domain-search-input');
+    const resultDiv = document.getElementById('domain-result');
+    let domain = input.value.trim();
+
+    if (!domain) {
+        resultDiv.innerHTML = '<span style="color: #d9534f;">Please enter a domain name.</span>';
+        return;
+    }
+
+    // Add default extension if missing (optional, but good UX)
+    if (!domain.includes('.')) {
+        domain += '.co.ke';
+        input.value = domain;
+    }
+
+    resultDiv.innerHTML = '<span style="color: #002c5f;"><i class="fas fa-spinner fa-spin"></i> Checking availability...</span>';
+
+    try {
+        // Use Google's Public DNS API
+        const response = await fetch(`https://dns.google/resolve?name=${domain}`);
+        const data = await response.json();
+
+        // Status 0 = NOERROR (Domain Exists/Taken)
+        // Status 3 = NXDOMAIN (Domain Not Found/Available)
+        if (data.Status === 3) {
+            resultDiv.innerHTML = `<span style="color: #28a745;"><i class="fas fa-check-circle"></i> <strong>${domain}</strong> is Available!</span>`;
+        } else if (data.Status === 0) {
+            resultDiv.innerHTML = `<span style="color: #dc3545;"><i class="fas fa-times-circle"></i> <strong>${domain}</strong> is Taken.</span>`;
+        } else {
+            resultDiv.innerHTML = `<span style="color: #ffa500;">Status Unknown. Please try again.</span>`;
+        }
+    } catch (error) {
+        console.error('DNS Check Error:', error);
+        resultDiv.innerHTML = '<span style="color: #d9534f;">Connection Error. Could not verify.</span>';
+    }
+}

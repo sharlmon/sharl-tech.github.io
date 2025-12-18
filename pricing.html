@@ -82,6 +82,31 @@
         </div>
     </header>
 
+    <!-- DOMAIN SEARCH SECTION -->
+    <section class="section" style="background: #e6f0ff; padding: 60px 0; color: #333; text-align: center;">
+        <div class="container">
+            <h5 style="color: #666; font-size: 1rem; margin-bottom: 5px;">You have the Idea? We have the Domain Name
+            </h5>
+            <h2 style="color: #002c5f; font-size: 2.5rem; font-weight: 800; margin-bottom: 30px;">Search Your Domain
+                Name</h2>
+
+            <div style="max-width: 700px; margin: 0 auto; position: relative;">
+                <div style="display: flex; flex-direction: column; gap: 0;">
+                    <input type="text" id="domain-search-input" placeholder="awesomename.co.ke"
+                        style="width: 100%; padding: 20px; font-size: 1.2rem; border: 1px solid #8ec549; outline: none; border-radius: 4px;">
+
+                    <button onclick="checkDomain()"
+                        style="background: #8ec549; color: white; border: none; padding: 15px 40px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: -1px; align-self: center; min-width: 200px;">
+                        Search
+                    </button>
+                </div>
+                <!-- Result Container -->
+                <div id="domain-result"
+                    style="margin-top: 20px; font-size: 1.2rem; font-weight: bold; min-height: 30px;"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- SECTION 1: BUILD YOUR OWN QUOTE CALCULATOR -->
     <section id="calculator-section" class="section contrast-section" style="padding-top: 0;">
         <div class="container">
